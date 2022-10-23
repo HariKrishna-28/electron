@@ -19,14 +19,20 @@
     "web-vitals": "^2.1.4"
   },
   "homepage": ".",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HariKrishna-28/electron.git"
+  },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "react:build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "electron:serve": "concurrently -k \"cross-env BROWSER=none npm start\" \"npm run electron:start\"",
     "electron:build": "yarn build && electron-builder -c.extraMetadata.main=build/main.js",
-    "electron:start": "wait-on tcp:3000 && electron ."
+    "electron:start": "wait-on tcp:3000 && electron .",
+    "build": "electron-builder build --win --publish never",
+    "deploy": "electron-builder build --win --publish always"
   },
   "build": {
     "extends": null,
